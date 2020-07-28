@@ -4,30 +4,40 @@
 
 ## Django
 
-Activate virtual env:
+Activate virtual env (and use the virtual environment's interpreter, located at app_ven/Scripts):
  
 ```bash
 $ python -m venv app_venv
 ```
 
+Start a Django project:
  
 ```bash
 $ django-admin startproject one
+$ cd one
 ```
+
+And start a Django application:
 
 ```bash
 $ django-admin startapp one_app
 ```
 
-Create the file one_app/urls.py. Define the first URL:
+You can store the packages installed if you want. Just type the freeze command:
+
+```bash
+$ pip freeze > requirements.txt
+```
+
+Now, create the file one_app/urls.py. Define the first URL:
 
 ```python
 from django.urls import path
-
+# This list contains all the url to your app
 urlpatterns = [ path('', views.post_list, name='post_list')]
 ```
 
-Create the first model at one_app/models.py:
+Then, create the first model at one_app/models.py:
 
 ```python
 from django.db import models
@@ -63,16 +73,11 @@ Name the app in urls.py as
 app = 'one_app'
 ```
 
-Migrate the changes:
+Migrate the changes (it is mapping the model with de ORM and create the related structure on the database):
 
 ```bash
 $ python manage.py makemigrations
-
-```
-
-```bash
 $ python manage.py migrate
-
 ```
 
 Register the model in the admin.py module:
@@ -89,4 +94,25 @@ Run the server:
 $ python manage.py runserver
 ```
 
-Login into admin site or run shell (python manage.py shell) to add posts
+Ok, at this point you've done this steps:
+- Define an URL
+- Relate thar URL with a controller (a view in Django)
+- Map the model and database schema through Django ORM
+- Run the server
+
+Next, login into admin site (localhost:8000) or run shell (python manage.py shell) to add posts
+
+## Add posts through shell
+
+Insert:
+
+```bash
+>> from . models import Post
+>> p = Post(title='The first one post', text='This is a simple content.')
+>> p.save()
+```
+
+Select all:
+```bash
+>> posts = Post.objects.all()
+```
