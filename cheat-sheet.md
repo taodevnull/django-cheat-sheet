@@ -1,16 +1,25 @@
-## Preconditions
+## Motivation
+You want to start asap with Django and you don't have too much time to read the official documentation.
+I assume that you have any knowledge about how to use a console (cmd, bash, sh and so on).
+
+### Preconditions
 - Download and install [Python language](https://www.python.org/downloads/)
 - Download and install your favorite IDE or text editor
 
-## Django
+### Django
 
 Activate virtual env (and use the virtual environment's interpreter, located at app_ven/Scripts):
  
 ```bash
+# create a virtual environment
 $ python -m venv app_venv
+# activate it (notice that the prompt changes)
+$ app_venv/Scripts/activate
+$ (app_venv) # <-- This is the new prompt
 ```
 
-Start a Django project:
+Ok, you have a virtual environment (it means: python libraries isolated to your python-system-libraries).
+Now, start a Django project:
  
 ```bash
 $ django-admin startproject one
@@ -94,15 +103,23 @@ Run the server:
 $ python manage.py runserver
 ```
 
-Ok, at this point you've done this steps:
+Let's pause to see the progress. At this point you've done this steps:
 - Define an URL
-- Relate thar URL with a controller (a view in Django)
+- Relate the URL with a controller (a view in Django)
 - Map the model and database schema through Django ORM
 - Run the server
 
-Next, login into admin site (localhost:8000) or run shell (python manage.py shell) to add posts
+Next, log in to admin site (localhost:8000/admin) or run shell (python manage.py shell) to add posts
 
-## Add posts through shell
+### Admin site: create an user before
+
+```bash
+# with this user you can log in at admin site.
+# you can access in localhost:8000/admin
+$ python manage.py createsuperuser
+```
+
+### Shell: add posts through shell
 
 Insert:
 
@@ -116,3 +133,10 @@ Select all:
 ```bash
 >> posts = Post.objects.all()
 ```
+
+### Verify the advance
+
+Log in to the admin site: localhost:8000 (use the credentials created with _createsuperuser_ command)
+Ok, you'll can see the post created previously.
+
+It's time to break! Then, read the documentation to delve into the concepts.
