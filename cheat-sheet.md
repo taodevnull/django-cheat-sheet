@@ -2,6 +2,12 @@
 You want to start asap with Django and you don't have too much time to read the official documentation.
 I assume that you have any knowledge about how to use a console (cmd, bash, sh and so on).
 
+Human universe  
+- Model View Controller
+
+Django universe  
+- Model Template View
+
 ### Preconditions
 - Download and install [Python language](https://www.python.org/downloads/)
 - Download and install your favorite IDE or text editor
@@ -46,6 +52,23 @@ from django.urls import path
 urlpatterns = [ path('', views.post_list, name='post_list')]
 ```
 
+Create the view at one_app/views.py:
+
+```python
+# This function is the controller to the url (in Django world we name it as view)
+def post_list(request):
+        posts = Post.objects.all()
+        return render(request, 'This is a simple text', {'posts':posts})
+```
+
+Add the app to the apps list in settings.py into INSTALLED_APPS variable
+
+Name the app in urls.py as
+
+```python
+app = 'one_app'
+```
+
 Then, create the first model at one_app/models.py:
 
 ```python
@@ -63,23 +86,6 @@ class Post(models.Model):
 		verbose_name = 'Posts'
 		db_table = 'Posts'
 		ordering = ['id']
-```
-
-Create the view at one_app/views.py:
-
-```python
-
-def post_list(request):
-        posts = Post.objects.all()
-        return render(request, 'This is a simple text', {'posts':posts})
-```
-
-Add the app to the apps list in settings.py into INSTALLED_APPS variable
-
-Name the app in urls.py as
-
-```python
-app = 'one_app'
 ```
 
 Migrate the changes (it is mapping the model with de ORM and create the related structure on the database):
