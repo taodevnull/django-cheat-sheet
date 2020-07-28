@@ -139,4 +139,4 @@ Select all:
 Log in to the admin site: localhost:8000 (use the credentials created with _createsuperuser_ command)
 Ok, you'll can see the post created previously.
 
-It's time to break! Then, read the documentation to delve into the concepts.
+It's time for a break! Then, [read the documentation](https://docs.djangoproject.com/en/3.0/) to delve into the concepts.
