@@ -7,4 +7,4 @@ A simple cheat sheet to start to develop with Django asap.
 - Test it on the built-in server
 
 ### Future
-- Add more features about Models...
+- Add more features about Models.
