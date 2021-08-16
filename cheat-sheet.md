@@ -22,7 +22,14 @@ $ python -m venv app_venv
 # activate it (notice that the prompt changes)
 $ app_venv/Scripts/activate
 $ (app_venv) # <-- This is the new prompt
-```
+```  
+Another way to do the same:
+```bash
+# create a virtual environment
+$ virtualenv --python=/usr/bin/python3.6 app_venv #specifies the concrete python version here
+$ source app_venv/bin/activate
+$ (app_venv) # <-- This is the new prompt
+``
 
 Ok, you have a virtual environment (it means: python libraries isolated to your python-system-libraries).
 Now, start a Django project:
