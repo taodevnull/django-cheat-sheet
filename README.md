@@ -1,8 +1,8 @@
 ### Django cheat sheet
 
-A simple cheat sheet to start to develop with Django asap.
+This is a simple cheat sheet to start to develop with Django asap.
 
-- Install python and Django Framework
+- Install python and Django Framework in a venv (virtual environment)
 - Create simple models, views and templates (MVC)
 - Test it on the built-in server
 
