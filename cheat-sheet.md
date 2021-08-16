@@ -12,6 +12,12 @@ Django universe
 - Download and install [Python language](https://www.python.org/downloads/)
 - Download and install your favorite IDE or text editor
 
+### Pip
+First of all we need to update pip3. It is not mandatory, but is a best practice to have the latest pip3 version installed.
+```bash
+$ python -m pip install --upgrade pip
+```
+
 ### Django
 
 Activate virtual env (and use the virtual environment's interpreter, located at app_ven/Scripts):
@@ -29,6 +35,11 @@ Another way to do the same:
 $ virtualenv --python=/usr/bin/python3.6 app_venv #specifies the concrete python version here
 $ source app_venv/bin/activate
 $ (app_venv) # <-- This is the new prompt
+```
+After that, we are ready to install Django:
+
+```bash
+$ pip3 install Django
 ```
 
 Ok, you have a virtual environment (it means: python libraries isolated to your python-system-libraries).
@@ -50,8 +61,17 @@ You can store the packages installed if you want. Just type the freeze command:
 ```bash
 $ pip freeze > requirements.txt
 ```
+Ok. We have the necessary stuff to do the first test of something alive. So, it is time to run the server!
+Type the follow commands:
 
-Now, create the file one_app/urls.py. Define the first URL:
+```bash
+$ cd one
+$ python3.6 manage.py migrate
+$ python3.6 manage.py runserver
+```
+Open the displayed URL with your browser. The django server will appear there.
+
+Now, let's to return to the console. Create the file one_app/urls.py. Define the first URL:
 
 ```python
 from django.urls import path
@@ -124,7 +144,7 @@ Let's pause to see the progress. At this point you've done this steps:
 
 Next, log in to admin site (localhost:8000/admin) or run shell (python manage.py shell) to add posts
 
-### Admin site: create an user before
+### Admin site: create a user before anything else
 
 ```bash
 # with this user you can log in at admin site.
