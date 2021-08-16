@@ -29,7 +29,7 @@ Another way to do the same:
 $ virtualenv --python=/usr/bin/python3.6 app_venv #specifies the concrete python version here
 $ source app_venv/bin/activate
 $ (app_venv) # <-- This is the new prompt
-``
+```
 
 Ok, you have a virtual environment (it means: python libraries isolated to your python-system-libraries).
 Now, start a Django project:
